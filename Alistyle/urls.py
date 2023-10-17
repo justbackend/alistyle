@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from asosiy.views import LoginsizView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('asosiy/', include("asosiy.urls")),
     # path("buyurtma/", include("buyurtma.urls")),
-    # path("userapp/", include("userapp.urls")),
+    path("user/", include("userapp.urls")),
+    path('', LoginsizView.as_view())
 ]

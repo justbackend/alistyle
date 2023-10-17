@@ -3,24 +3,22 @@ from django.views import View
 from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
-class LoginView(View):
+class HomeView(View):
     def get(self, request):
-        return render(request, 'page-user-login.html')
+        return render(request, 'page-index.html')
 
-    def post(self, request):
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return render(request, 'page-user-login.html')
-        return render(request, 'page-user-login.html')
-
-
-class LogoutView(View):
+class LoginsizView(View):
     def get(self, request):
-        logout(request)
-        return redirect("login")
+        return render(request, 'page-index-2.html')
 
-    def post(self, request):
-        pass
+class Bolimlar(View):
+    def get(self, request):
+        return render(request, 'page-category.html')
+
+class Mahsulotlar(View):
+    def get(self, request):
+        return render(request, 'page-listing-grid.html')
+
+class MahsulotView(View):
+    def get(self, request):
+        return render(request, 'page-detail-product.html')
