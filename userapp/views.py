@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .models import *
 from random import randint
+from eskiz.client import SMSClient
 # Create your views here.
 
 class LoginView(View):
@@ -54,7 +55,7 @@ class Register(View):
 
         client._send_sms(
             phone_number=request.POST.get("phone"),
-            message=f"Sizning ko'dingiz: {kod}"
+            message=f"{request.POST.get('ismi')} sizning ko'dingiz: {kod}"
         )
 
         return redirect("tasdiqlash")

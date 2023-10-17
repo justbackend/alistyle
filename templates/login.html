@@ -53,7 +53,7 @@
 <body>
 	<div class="container">
 		<h1>Tasdiqlash</h1>
-		<form method="post" action="/">
+		<form method="post" >{% csrf_token %}
 			<label for="username">Phone number:</label>
 			<input type="text" name="tel" id="username" placeholder="Enter number ...">
 			<label for="password">Password:</label>
