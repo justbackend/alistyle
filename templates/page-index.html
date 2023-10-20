@@ -12,14 +12,10 @@
 		<nav class="nav-home-aside">
 			<h6 class="title-category">MY MARKETS <i class="d-md-none icon fa fa-chevron-down"></i></h6>
 			<ul class="menu-category">
-				<li><a href="#">Fashion and clothes</a></li>
-				<li><a href="#">Automobile and motors</a></li>
-				<li><a href="#">Gardening and agriculture</a></li>
-				<li><a href="#">Electronics and tech</a></li>
-				<li><a href="#">Packaginf and printing</a></li>
-				<li><a href="#">Home and kitchen</a></li>
-				<li><a href="#">Digital goods</a></li>
-				<li class="has-submenu"><a href="#">More items</a>
+			    {% for bolim in bolimlar %}
+                <li><a href="/asosiy/mahsulotlar/{{ bolim.id }}/">{{ bolim }}</a></li>
+				{% endfor %}
+				<li class="has-submenu"><a href="/asosiy/bolimlar/">Bolimlar</a>
 					<ul class="submenu">
 						<li><a href="#">Submenu name</a></li>
 						<li><a href="#">Great submenu</a></li>
@@ -118,50 +114,20 @@
      </div>
    </div> <!-- col.// -->
    <div class="row no-gutters items-wrap">
+       {% for mahsulot in mahsulotlar %}
     <div class="col-md col-6">
+
      <figure class="card-product-grid card-sm">
-      <a href="#" class="img-wrap"> 
-       <img src="images/items/3.jpg"> 
+      <a href="/asosiy/mahsulot/{{ mahsulot.id }}/" class="img-wrap">
+       <img src="{{ mahsulot.media_set.first.rasm.url }}">
       </a>
       <div class="text-wrap p-3">
-       	<a href="#" class="title">Summer clothes</a>
-       	<span class="badge badge-danger"> -20% </span>
+       	<a href="/asosiy/mahsulot/{{ mahsulot.id }}/" class="title">{{ mahsulot.nom }}</a>
+       	<span class="badge badge-danger"> {{ mahsulot.chegirma }} </span>
       </div>
    </figure>
- </div> <!-- col.// -->
- <div class="col-md col-6">
-   <figure class="card-product-grid card-sm">
-    <a href="#" class="img-wrap"> 
-     <img src="images/items/4.jpg"> 
-   </a>
-   <div class="text-wrap p-3">
-     <a href="#" class="title">Some category</a>
-     <span class="badge badge-danger"> -5% </span>
-   </div>
- </figure>
-</div> <!-- col.// -->
-<div class="col-md col-6">
- <figure class="card-product-grid card-sm">
-  <a href="#" class="img-wrap"> 
-   <img src="images/items/5.jpg"> 
- </a>
- <div class="text-wrap p-3">
-   <a href="#" class="title">Another category</a>
-   <span class="badge badge-danger"> -20% </span>
- </div>
-</figure>
-</div> <!-- col.// -->
-<div class="col-md col-6">
- <figure class="card-product-grid card-sm">
-  <a href="#" class="img-wrap"> 
-   <img src="images/items/6.jpg"> 
- </a>
- <div class="text-wrap p-3">
-   <a href="#" class="title">Home apparel</a>
-   <span class="badge badge-danger"> -15% </span>
- </div>
-</figure>
-</div> <!-- col.// -->
+    </div>
+       {% endfor %}
 <div class="col-md col-6">
  <figure class="card-product-grid card-sm">
   <a href="#" class="img-wrap"> 
